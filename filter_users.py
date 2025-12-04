@@ -10,6 +10,16 @@ def filter_users_by_name(name):
     for user in filtered_users:
         print(user)
 
+def filter_by_email(email):
+    """Function to filter by email, print the user data as dictionary"""
+    with open("users.json", "r") as file:
+        users = json.load(file)
+
+    filtered_users = [user for user in users if user["email"] == email]
+
+    for user in filtered_users:
+        print(user)
+
 
 if __name__ == "__main__":
     filter_option = input("What would you like to filter by? (Currently, only 'name' is supported): ").strip().lower()
